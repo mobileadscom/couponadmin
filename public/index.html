@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+  <title>Coupon Re-issue</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+</head>
+<body>
+	<div class="userSection">
+		Type in user's email or twitter name/id
+		<form action="" id="cForm">
+			<input type="text" id="userId" />
+			<button type="submit" id="submit-btn">Submit</button>
+		</form>
+		<div id="resultMsg">
+			<span id="rTwitName"></span>
+			<br>userId: <span id="rUserId"></span>
+			<br>win date: <span id="rUserDate"></span>
+			<br>state: <span id="rUserState"></span>
+			<br>coupon: <span id="rUserCoupon"></span>
+			<br><span id="rlink"></span>
+		</div>
+
+		<p id="notFound"> User Not Found</p>
+		<button id="issueBtn"> Get this user a new coupon</button>
+		<p id="working"></p>
+		<div id="issueResult"></div>
+	</div>
+	<div class="couponSection">
+		Type in coupon code here to check its owner
+		<br><input type="text" id="couponInput" />
+		<button id="checkCouponOwner">Submit</button>
+		<div id="couponResult">
+			<span id="cTwitName"></span>
+			<br>userId: <span id="cUserId"></span>
+			<br>win date: <span id="cUserDate"></span>
+		</div>
+		<p id="cNotFound">Invalid Coupon</p>
+		<p id="cWorking"></p>
+	</div>
+</body>
+</html>
+
+<style type="text/css">
+body {
+	margin: 10px;
+	font-family: 'Arial';
+	font-size: 14px;
+}
+#working, #resultMsg, #notFound, #issueBtn, #couponResult, #cNotFound, #cWorking {
+	display: none;
+}
+
+#resultMsg, #couponResult {
+	margin-top: 10px;
+}
+
+#issueBtn {
+	margin-top: 10px;
+}
+
+.userSection {
+	padding-bottom: 20px;
+	border-bottom: 2px solid #888;
+}
+
+.couponSection {
+	padding: 20px 0px;
+}
+</style>
