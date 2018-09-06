@@ -104,6 +104,15 @@ var fn = {
 			document.getElementById('cUserDate').innerHTML = new Date(userData.dateCreated);	
 		}
 		document.getElementById('couponResult').style.display = 'block';	
+	},
+	trackReissue(oldCoupon, newCoupon, userId) {
+		if (window.location.hostname.indexOf('localhost') < 0 && window.location.protocol != 'file:') {
+			var value = userId + '_' + oldCoupon + '_' + newCoupon;
+			var timestamp = Date.now();
+			var pixel = document.createElement('img');
+			pixel.src = 'https://track.richmediaads.com/a/analytic.htm?uid=0&isNew={{isNew}}&referredUrl={{referredUrl}}&rmaId=2&domainId=0&pageLoadId=' + timestamp + '&userId=4831&pubUserId=0&campaignId=e32e385370b2e04d225d2dfa5497483b&browser={{browser}}&os={{os}}&domain={{domain}}&callback=trackSuccess&type=coupon_reissue&tt=E&value=' + value + '&ty=E&uniqueId=' + userId;
+			document.body.appendChild(pixel);
+		}
 	}
 }
 
@@ -215,6 +224,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		fn.IssueNewCoupon(window.currentUser.id).then((response) => {
 			if (response.status) {
+				fn.trackReissue(window.currentUser.couponCode, response.newCouponCode, window.currentUser.id);
 				document.getElementById('issueResult').innerHTML += '<p>new coupon ' + response.newCouponCode + ' issued to user ' + window.currentUser.id + '</p>';
 			}
 			else {

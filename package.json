@@ -1,7 +1,7 @@
 {
-  "name": "fingerprintJSTest",
+  "name": "Issue Coupon",
   "version": "1.0.0",
-  "description": "fingerprintJS testing",
+  "description": "Issue coupon",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,8 +9,7 @@
     "build:prod": "webpack -p"
   },
   "keywords": [
-    "fingerprintJS",
-    "test"
+    "coupon",
   ],
   "author": "yk",
   "license": "ISC",
